@@ -9,17 +9,17 @@ DEST_FOLDER=""
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
     case $1 in
-        --remove-zip|-r)
+        --delete-zip|-d)
             REMOVE_ZIP_FILES=true
             shift
             ;;
         -*)
             echo "Unknown option $1"
-            echo "Usage: $0 [--remove-zip|-r] <source_folder> [destination_folder]"
-            echo "Example: $0 --remove-zip /path/to/source /path/to/destination"
-            echo "Example: $0 -r /path/to/source"
+            echo "Usage: $0 [--delete-zip|-d] <source_folder> [destination_folder]"
+            echo "Example: $0 --delete-zip /path/to/source /path/to/destination"
+            echo "Example: $0 -d /path/to/source"
             echo "If destination folder is not provided, extracts to current directory"
-            echo "Use --remove-zip or -r to delete zip files after extraction"
+            echo "Use --delete-zip or -d to delete zip files after extraction"
             exit 1
             ;;
         *)
@@ -39,11 +39,11 @@ done
 
 # Check if source folder is provided
 if [ -z "$SOURCE_FOLDER" ]; then
-    echo "Usage: $0 [--remove-zip|-r] <source_folder> [destination_folder]"
-    echo "Example: $0 --remove-zip /path/to/source /path/to/destination"
-    echo "Example: $0 -r /path/to/source"
+    echo "Usage: $0 [--delete-zip|-d] <source_folder> [destination_folder]"
+    echo "Example: $0 --delete-zip /path/to/source /path/to/destination"
+    echo "Example: $0 -d /path/to/source"
     echo "If destination folder is not provided, extracts to current directory"
-    echo "Use --remove-zip or -r to delete zip files after extraction"
+    echo "Use --delete-zip or -d to delete zip files after extraction"
     exit 1
 fi
 # Check if source folder exists
